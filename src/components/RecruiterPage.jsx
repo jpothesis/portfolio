@@ -5,44 +5,37 @@ import TileRow from "./TileRow";
 import RectTileRow from "./RectTileRow"; // New component
 import RecruiterVideo from "../assets/recruiter.mp4"; // MP4
 
+// Import local images
+import skillsImg from "../assets/skills.png";
+import certificationsImg from "../assets/certifications.png";
+import projectsImg from "../assets/projects.png";
+import experienceImg from "../assets/experience.png";
+import resumeImg from "../assets/resume.png";
+import contactMeImg from "../assets/contactme.png";
+
+import musicImg from "../assets/music.png";
+import photographyImg from "../assets/photography.png";
+import readingImg from "../assets/reading.png";
+import contactMe1Img from "../assets/contactme1.png";
+
 const RecruiterPage = () => {
   const navigate = useNavigate();
 
   const topPicks = [
-    { title: "Skills", route: "/work-permit", image: "work-permit.jpg" },
-    { title: "Certifications", route: "/skills", image: "skills.jpg" },
-    { title: "Projects", route: "/experience", image: "experience.jpg" },
-    { title: "Experience", route: "/certifications", image: "certifications.jpg" },
-    { title: "Resume", route: "/recommendations", image: "recommendations.jpg" },
-    { title: "Contact Me", route: "/projects", image: "projects.jpg" },
-
+    { title: "Skills", route: "/work-permit", image: skillsImg },
+    { title: "Certifications", route: "/skills", image: certificationsImg },
+    { title: "Projects", route: "/experience", image: projectsImg },
+    { title: "Experience", route: "/certifications", image: experienceImg },
+    { title: "Resume", route: "/recommendations", image: resumeImg },
+    { title: "Contact Me", route: "/projects", image: contactMeImg },
   ];
 
   const continueWatching = [
-    { title: "Music", route: "/music", image: "music.jpg" },
-    { title: "Photography", route: "/reading", image: "reading.jpg" },
-    { title: "Reading", route: "/blogs", image: "blogs.jpg" },
-    { title: "Contact Me", route: "/contact-me", image: "contact-me.jpg" },
-
+    { title: "Music", route: "/music", image: musicImg },
+    { title: "Photography", route: "/reading", image: photographyImg },
+    { title: "Reading", route: "/blogs", image: readingImg },
+    { title: "Contact Me", route: "/contact-me", image: contactMe1Img },
   ];
-
-  const placeholderImages = {
-    "work-permit.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "skills.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "experience.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "certifications.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "recommendations.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "projects.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "music.jpg": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1ae",
-    "reading.jpg": "https://images.unsplash.com/photo-1516979187457-63952f4549d5",
-    "blogs.jpg": "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
-    "contact-me.jpg": "https://images.unsplash.com/photo-1587560445892-0b29c9104b2a",
-    "portfolio.jpg": "https://images.unsplash.com/photo-1522814322470-3d7c3468579d",
-    "clients.jpg": "https://images.unsplash.com/photo-1529156069894-3a5f988849b2",
-    "interests.jpg": "https://images.unsplash.com/photo-1518779774619-389f4f4f0c4a",
-    "gallery.jpg": "https://images.unsplash.com/photo-1518704289882-748430761e2b",
-    "testimonials.jpg": "https://images.unsplash.com/photo-1522814234032-b7b752243d94",
-  };
 
   return (
     <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden">
@@ -87,7 +80,6 @@ const RecruiterPage = () => {
           <TileRow 
             title="Today's Top Picks for recruiter"
             tiles={topPicks}
-            placeholderImages={placeholderImages}
             navigate={navigate}
           />
 
@@ -95,7 +87,6 @@ const RecruiterPage = () => {
           <RectTileRow
             title="Continue Watching for recruiter"
             tiles={continueWatching}
-            placeholderImages={placeholderImages}
             navigate={navigate}
           />
         </div>
