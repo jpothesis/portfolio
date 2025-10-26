@@ -17,13 +17,23 @@ const profiles = [
 const ProfileSelection = () => {
   const navigate = useNavigate();
 
-  const handleClick = (path) => navigate(path);
+  const handleClick = (profile) => {
+    // Save selected profile to localStorage
+    localStorage.setItem("selectedProfile", profile.id);
+    // Navigate to profile page
+    navigate(profile.path);
+  };
 
   return (
-    <div className="h-screen w-full bg-gradient-to-b from-gray-900 via-gray-800 to-black flex flex-col items-center justify-center p-4 font-sans">
+    <div className="h-screen w-full bg-gradient-to-b from-gray-900 via-gray-800 to-black flex flex-col items-center justify-center p-4 font-sans relative">
       {/* Top Branding - Logo */}
       <div className="absolute top-6 left-6">
-        <img src={logo} alt="Logo" className="w-32 md:w-40 opacity-90" />
+        <img
+          src={logo}
+          alt="Logo"
+          className="w-32 md:w-40 opacity-90 cursor-pointer"
+          onClick={() => navigate("/")}
+        />
       </div>
 
       {/* Title */}
@@ -38,11 +48,15 @@ const ProfileSelection = () => {
         {profiles.map((profile) => (
           <div
             key={profile.id}
-            onClick={() => handleClick(profile.path)}
+            onClick={() => handleClick(profile)}
             className="cursor-pointer flex flex-col items-center group transition-transform duration-300"
           >
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-transparent group-hover:scale-110 group-hover:border-blue-500 transition-all duration-300 shadow-lg">
-              <img src={profile.image} alt={profile.name} className="object-cover w-full h-full" />
+              <img
+                src={profile.image}
+                alt={profile.name}
+                className="object-cover w-full h-full"
+              />
             </div>
             <h3 className="mt-4 text-lg md:text-xl font-semibold text-gray-300 group-hover:text-white transition-colors duration-300">
               {profile.name}
