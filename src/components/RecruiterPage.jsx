@@ -24,10 +24,10 @@ const RecruiterPage = () => {
   const navigate = useNavigate();
 
 const topPicks = [
-  { title: "Skills", route: "/work-permit", image: skillsImg },
-  { title: "Certifications", route: "/certifications", image: certificationsImg }, // Updated route
-  { title: "Projects", route: "/experience", image: projectsImg },
-  { title: "Experience", route: "/certifications", image: experienceImg },
+  { title: "Skills", route: "/skills", image: skillsImg }, 
+  { title: "Certifications", route: "/certifications", image: certificationsImg }, 
+  { title: "Projects", route: "/projects", image: projectsImg },
+  { title: "Experience", route: "/professional", image: experienceImg },
   { title: "Resume", route: "/recommendations", image: resumeImg },
   { title: "Contact Me", route: "/contact-me", image: contactMeImg },
 ];

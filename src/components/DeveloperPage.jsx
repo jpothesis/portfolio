@@ -1,62 +1,49 @@
+"use client";
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import TileRow from "./TileRow";
-import DeveloperVideo from "../assets/developer.mp4"; // Import your MP4
+import RectTileRow from "./RectTileRow"; 
+import DeveloperVideo from "../assets/developer.mp4"; // Developer video
+
+// Local images (same as RecruiterPage)
+import skillsImg from "../assets/skills.png";
+import certificationsImg from "../assets/certifications.png";
+import projectsImg from "../assets/projects.png";
+import experienceImg from "../assets/experience.png";
+import resumeImg from "../assets/resume.png";
+import contactMeImg from "../assets/contactme.png";
+import musicImg from "../assets/music.png";
+import photographyImg from "../assets/photography.png";
+import readingImg from "../assets/reading.png";
+import contactMe1Img from "../assets/contactme1.png";
 
 const DeveloperPage = () => {
   const navigate = useNavigate();
 
-  // Tile data (same structure as RecruiterPage)
   const topPicks = [
-    { title: "Work Permit", route: "/work-permit", image: "work-permit.jpg" },
-    { title: "Skills", route: "/skills", image: "skills.jpg" },
-    { title: "Experience", route: "/experience", image: "experience.jpg" },
-    { title: "Certifications", route: "/certifications", image: "certifications.jpg" },
-    { title: "Recommendations", route: "/recommendations", image: "recommendations.jpg" },
-    { title: "Projects", route: "/projects", image: "projects.jpg" },
-    { title: "Portfolio", route: "/portfolio", image: "portfolio.jpg" },
-    { title: "Clients", route: "/clients", image: "clients.jpg" },
+    { title: "Skills", route: "/skills", image: skillsImg }, 
+    { title: "Certifications", route: "/certifications", image: certificationsImg }, 
+    { title: "Projects", route: "/projects", image: projectsImg },
+    { title: "Experience", route: "/professional", image: experienceImg },
+    { title: "Resume", route: "/recommendations", image: resumeImg },
+    { title: "Contact Me", route: "/contact-me", image: contactMeImg },
   ];
 
   const continueWatching = [
-    { title: "Music", route: "/music", image: "music.jpg" },
-    { title: "Reading", route: "/reading", image: "reading.jpg" },
-    { title: "Blogs", route: "/blogs", image: "blogs.jpg" },
-    { title: "Contact Me", route: "/contact-me", image: "contact-me.jpg" },
-    { title: "Interests", route: "/interests", image: "interests.jpg" },
-    { title: "Gallery", route: "/gallery", image: "gallery.jpg" },
-    { title: "Testimonials", route: "/testimonials", image: "testimonials.jpg" },
+    { title: "Music", route: "/music", image: musicImg },
+    { title: "Photography", route: "/reading", image: photographyImg },
+    { title: "Reading", route: "/blogs", image: readingImg },
+    { title: "Contact Me", route: "/contact-me", image: contactMe1Img },
   ];
-
-  const placeholderImages = {
-    "work-permit.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "skills.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "experience.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "certifications.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "recommendations.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "projects.jpg": "https://images.unsplash.com/photo-1542281286-9a0837ed72c4",
-    "music.jpg": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1ae",
-    "reading.jpg": "https://images.unsplash.com/photo-1516979187457-63952f4549d5",
-    "blogs.jpg": "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
-    "contact-me.jpg": "https://images.unsplash.com/photo-1587560445892-0b29c9104b2a",
-    "portfolio.jpg": "https://images.unsplash.com/photo-1522814322470-3d7c3468579d",
-    "clients.jpg": "https://images.unsplash.com/photo-1529156069894-3a5f988849b2",
-    "interests.jpg": "https://images.unsplash.com/photo-1518779774619-389f4f4f0c4a",
-    "gallery.jpg": "https://images.unsplash.com/photo-1518704289882-748430761e2b",
-    "testimonials.jpg": "https://images.unsplash.com/photo-1522814234032-b7b752243d94",
-  };
 
   return (
     <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden">
-      
-      {/* Navbar */}
       <Navbar />
 
-      {/* 🌟 Hero Section with video background */}
-      <header className="relative w-full h-[60vh] flex items-center overflow-hidden">
-
-        {/* Video Background */}
+      {/* Hero/Header Section with video */}
+      <header className="relative w-full h-[60vh] flex flex-col justify-center bg-black overflow-hidden">
         <video
           src={DeveloperVideo}
           autoPlay
@@ -64,49 +51,44 @@ const DeveloperPage = () => {
           muted
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
-
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
 
-        {/* Buttons on the left in one row */}
-        <div className="relative z-10 flex items-center space-x-4 pl-10">
-          <button 
-            onClick={() => navigate('/resume')}
-            className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white/100 transition"
-          >
-            Resume
-          </button>
-
-          <div className="group relative">
-            <button className="bg-white/90 text-black font-bold w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/100 transition">
-              !
-            </button>
-            <span className="absolute left-full ml-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-black text-white text-sm px-2 py-1 rounded-md whitespace-nowrap transition-opacity">
+        <div className="relative z-10 flex flex-col gap-4 pl-10 mt-28">
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => navigate('/resume')}
+              className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
+            >
               Resume
-            </span>
+            </button>
+
+            <a
+              href="https://www.linkedin.com/in/your-profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white font-semibold px-5 py-2 rounded-md flex items-center gap-2 hover:bg-blue-700 transition text-lg"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+                <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.67-1.27 2.3-2.6 4.74-2.6 5.08 0 6 3.34 6 7.68V24h-5v-7c0-1.67-.03-3.83-2.33-3.83-2.33 0-2.68 1.82-2.68 3.7V24h-5V8z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <div>
+            <p className="text-white text-lg md:text-xl">
+              <span className="font-bold text-2xl md:text-4xl">Jaanvi Choudhary - Full Stack Developer</span><br/><br/>
+              Skilled Full-Stack Developer with expertise in React, Node.js, MongoDB, Tailwind CSS, and AI-powered integrations. I successfully led a college-wide platform serving 1,000–2,000 users, streamlining resource management and daily workflows. Experienced in building scalable, high-performance applications with clean architecture, responsive UIs, and intelligent AI features. Passionate about delivering innovative, user-centric solutions that make an impact.
+            </p>
           </div>
         </div>
-
       </header>
 
-      {/* 🔍 Content Grid Section */}
+      {/* Content Section */}
       <section className="py-8 bg-gray-900/95">
         <div className="max-w-full mx-auto">
-          {/* Tile Row 1: Today's Top Picks */}
-          <TileRow 
-            title="Today's Top Picks for developer"
-            tiles={topPicks}
-            placeholderImages={placeholderImages}
-            navigate={navigate}
-          />
-
-          {/* Tile Row 2: Continue Watching */}
-          <TileRow 
-            title="Continue Watching for developer"
-            tiles={continueWatching}
-            placeholderImages={placeholderImages}
-            navigate={navigate}
-          />
+          <TileRow title="Today's Top Picks for Developer" tiles={topPicks} navigate={navigate} />
+          <RectTileRow title="Continue Watching for Developer" tiles={continueWatching} navigate={navigate} />
         </div>
       </section>
     </div>

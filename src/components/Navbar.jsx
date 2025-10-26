@@ -12,7 +12,7 @@ const navItems = [
   { name: "Professional", path: "/professional" },
   { name: "Skills", path: "/skills" },
   { name: "Projects", path: "/projects" },
-  { name: "Hire Me", path: "/hire-me" },
+  { name: "Hire Me", path: "/contact-me" },
 ];
 
 const profileImages = {
