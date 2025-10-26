@@ -1,47 +1,80 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png"; // Adjust if needed
+import logo from "../assets/logo.png";
+import splashSound from "../assets/splash.mp3"; // 🎵 Sound file
 
 const Splash = () => {
+  const [hasStarted, setHasStarted] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const navigate = useNavigate();
+  const audioRef = useRef(null);
 
-  useEffect(() => {
-    // Fade out after 2.5 seconds
-    const timer1 = setTimeout(() => {
+  const startSplash = async () => {
+    setHasStarted(true);
+
+    // 🎧 Create and play splash sound
+    const audio = new Audio(splashSound);
+    audio.volume = 1.0;
+    audioRef.current = audio;
+
+    try {
+      await audio.play(); // Works since triggered by user tap
+    } catch (err) {
+      console.warn("Playback error:", err);
+    }
+
+    // 🌫️ Fade out animation and sound
+    setTimeout(() => {
       setFadeOut(true);
+
+      // Smooth sound fade
+      const fadeInterval = setInterval(() => {
+        if (audio.volume > 0.05) {
+          audio.volume -= 0.05;
+        } else {
+          clearInterval(fadeInterval);
+          audio.pause();
+        }
+      }, 100);
     }, 2500);
 
-    // Navigate to /profiles after fade completes
-    const timer2 = setTimeout(() => {
+    // ⏩ Navigate after fade-out
+    setTimeout(() => {
       navigate("/profiles");
     }, 3200);
+  };
 
+  useEffect(() => {
     return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
     };
-  }, [navigate]);
+  }, []);
 
   return (
     <div
-      className={`fixed inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-black flex items-center justify-center transition-opacity duration-500 ${
+      className={`fixed inset-0 bg-gradient-to-br from-[#0a0f1c] via-[#081831] to-[#000814] flex items-center justify-center transition-opacity duration-500 ${
         fadeOut ? "opacity-0" : "opacity-100"
       }`}
+      onClick={!hasStarted ? startSplash : undefined} // 👆 Start on tap
     >
-      {/* Centered Logo */}
-      <div className="flex flex-col items-center justify-center text-center">
-        <div className="animate-pulse-slow">
-          <img
-            src={logo}
-            alt="Logo"
-            className="animate-glow-logo w-[700px] max-w-[90vw] h-auto object-contain" // ✅ Bigger and responsive
-          />
+      {/* Blank screen initially */}
+      {hasStarted && (
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className="animate-pulse-slow">
+            <img
+              src={logo}
+              alt="Logo"
+              className="animate-glow-logo w-[700px] max-w-[90vw] h-auto object-contain"
+            />
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Custom Animation Styles */}
+      {/* Custom Animations */}
       <style jsx="true">{`
         @keyframes glow-logo {
           0%,

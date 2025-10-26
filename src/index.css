@@ -74,3 +74,25 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.tenor-gif-embed {
+    /* Ensures the container is the full size you want */
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute; /* Already present in your JSX */
+    top: 0;
+    left: 0;
+}
+
+/* 🎯 THE CRITICAL PART: Targets the element (usually an iframe or div) 
+   the Tenor script puts inside your .tenor-gif-embed div */
+.tenor-gif-embed > * {
+    /* 1. Force the embedded content to fill the parent container */
+    width: 100% !important;
+    height: 100% !important;
+    
+    /* 2. Apply object-fit: cover to ensure it leaves no gaps */
+    object-fit: cover !important; 
+    
+    /* 3. Ensure it is displayed as a block-level element */
+    display: block !important;
+}
