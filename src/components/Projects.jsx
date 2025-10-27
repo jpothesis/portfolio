@@ -1,63 +1,78 @@
 import React from "react";
-import Navbar from "./Navbar"; 
+import Navbar from "./Navbar";
 import { Card } from "./ui/card";
-import Button from "./ui/button";
-import { Github } from "lucide-react";
+import { Github, Globe } from "lucide-react";
+
+import IGDTUW_Verse from "../assets/IGDTUW_Verse.png";
+import ThreeDWebsite from "../assets/3d_Website.png";
+import CareerGenie_AI from "../assets/CareerGenie_AI.png";
+import Portfolio from "../assets/portfolio.png";
+import EcoTransform from "../assets/EcoTransform.png";
 
 const projectsData = [
   {
     id: "1",
-    title: "E-Commerce Platform",
+    title: "IGDTUW_Verse",
     description:
-      "A full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
-    image: "/ecommerce-dashboard.png",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    githubUrl: "https://github.com",
+      "A digital community platform for IGDTUW students featuring updates, discussions, events, and resources in one place — building a connected campus experience.",
+    image: IGDTUW_Verse,
+    tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    siteUrl: "https://igdtuw-verse.netlify.app",
   },
   {
     id: "2",
-    title: "Task Management App",
+    title: "3D Interactive Website",
     description:
-      "Collaborative task management tool with real-time updates, team collaboration features, and advanced filtering.",
-    image: "/task-management-app.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase"],
-    githubUrl: "https://github.com",
+      "A creative frontend-only 3D portfolio experiment that integrates dynamic 3D models and smooth animations — built to explore advanced WebGL and Three.js rendering.",
+    image: ThreeDWebsite,
+    tags: ["React", "Three.js", "Vite", "Framer Motion", "Tailwind CSS"],
+    siteUrl: "https://3-d-website-jpothesis.vercel.app/",
   },
   {
     id: "3",
-    title: "Analytics Dashboard",
+    title: "CareerGenie.AI",
     description:
-      "Data visualization dashboard with interactive charts, real-time metrics, and customizable reports.",
-    image: "/analytics-dashboard.png",
-    tags: ["React", "D3.js", "Python", "PostgreSQL"],
-    githubUrl: "https://github.com",
+      "An AI-powered full-stack career assistant that helps users create resumes, prepare for interviews, and receive personalized career guidance — all through an intelligent, interactive dashboard.",
+    image: CareerGenie_AI,
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "OpenAI API",
+      "Vite",
+    ],
+    githubUrl: "https://github.com/jpothesis/CareerGenie_AI",
+    status: "Ongoing",
   },
   {
     id: "4",
-    title: "Social Media App",
+    title: "Portfolio Website",
     description:
-      "Social networking platform with user profiles, messaging, and content sharing capabilities.",
-    image: "/social-media-application-interface.jpg",
-    tags: ["React Native", "Node.js", "MongoDB", "Socket.io"],
-    githubUrl: "https://github.com",
+      "My personal portfolio website showcasing my projects, skills, and achievements with a clean UI, smooth animations, and responsive design.",
+    image: Portfolio,
+    tags: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+    siteUrl: "https://portfolio-nu-three-41.vercel.app/",
   },
   {
     id: "5",
-    title: "AI Content Generator",
+    title: "EcoTransform",
     description:
-      "AI-powered content generation tool with multiple templates and customization options.",
-    image: "/ai-content-generator-interface.png",
-    tags: ["Next.js", "OpenAI", "TypeScript", "Vercel"],
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "6",
-    title: "Design System",
-    description:
-      "Comprehensive design system and component library for enterprise applications.",
-    image: "/design-system-components.png",
-    tags: ["React", "Storybook", "TypeScript", "Figma"],
-    githubUrl: "https://github.com",
+      "A sustainability-driven platform connecting small-scale artisans and waste suppliers — promoting recycling and upcycling with AI-driven recommendations and blockchain-based transparency.",
+    image: EcoTransform,
+    tags: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Blockchain",
+      "AI Integration",
+      "Tailwind CSS",
+    ],
+    githubUrl: "https://github.com/jpothesis-alt/EcoTransform",
+    status: "Ongoing",
   },
 ];
 
@@ -71,50 +86,72 @@ const Projects = () => {
             {projectsData.map((project) => (
               <Card
                 key={project.id}
-                className="overflow-hidden border border-gray-700 bg-gray-900 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300 group"
+                className="flex flex-col overflow-hidden border border-gray-700 bg-gray-900 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300 group"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden bg-gray-800 h-48">
                   <img
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col h-full">
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 mb-4">{project.description}</p>
+                <div className="flex flex-col justify-between flex-1 p-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4">{project.description}</p>
 
-                  {/* Tech Stack Pills */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {project.status && (
+                      <p className="text-xs text-gray-400 italic mb-2">
+                        {project.status}
+                      </p>
+                    )}
                   </div>
 
-                  {/* GitHub Button */}
-                  {project.githubUrl && (
-                    <Button asChild variant="outline" className="mt-auto">
+                  {/* Buttons */}
+                  <div className="flex gap-3 mt-4">
+                    {project.siteUrl && (
+                      <a
+                        href={project.siteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 text-center border border-blue-500 text-white py-2 rounded-lg transition-all duration-300 hover:bg-blue-500/10 hover:shadow-[0_0_15px_#3b82f6] active:shadow-[0_0_25px_#3b82f6]"
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          <Globe className="w-4 h-4" />
+                          Visit Site
+                        </div>
+                      </a>
+                    )}
+                    {project.githubUrl && (
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                        className="flex-1 text-center border border-blue-500 text-white py-2 rounded-lg transition-all duration-300 hover:bg-blue-500/10 hover:shadow-[0_0_15px_#3b82f6] active:shadow-[0_0_25px_#3b82f6]"
                       >
-                        <Github className="w-4 h-4" />
-                        Code
+                        <div className="flex items-center justify-center gap-2">
+                          <Github className="w-4 h-4" />
+                          GitHub
+                        </div>
                       </a>
-                    </Button>
-                  )}
+                    )}
+                  </div>
                 </div>
               </Card>
             ))}

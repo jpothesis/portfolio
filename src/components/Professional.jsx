@@ -5,48 +5,124 @@ import { Card } from "./ui/card"; // Your Card component
 const timelineData = [
   {
     id: "1",
-    type: "work",
-    title: "Senior Frontend Engineer",
-    organization: "Tech Company Inc.",
-    period: "2023 - Present",
-    description: "Leading frontend development and mentoring junior developers",
-    details: ["Architected scalable React applications", "Improved performance by 40%", "Led team of 5 developers"],
+    type: "education",
+    title: "Schooling",
+    organization: "Modern Convent School, Delhi",
+    period: "2010 - 2024",
+    description:
+      "Completed my schooling with a strong academic foundation in science and mathematics.",
+    details: [
+      "Graduated in 2024 with a focus on Science stream ",
+      "Developed an early interest in programming and AI",
+    ],
   },
   {
     id: "2",
     type: "education",
-    title: "Master of Science in Computer Science",
-    organization: "University of Technology",
-    period: "2021 - 2023",
-    description: "Specialized in Software Engineering and Web Technologies",
+    title: "B.Tech in Computer Science and Engineering",
+    organization: "Indira Gandhi Delhi Technical University for Women (IGDTUW)",
+    period: "2024 - 2028 (Ongoing)",
+    description:
+      "Currently pursuing my B.Tech degree with specialization in Computer Science and Engineering.",
+    details: [
+      "Currently in 2nd year of the program - CGPA:",
+      "Studying core CS subjects like Data Structures, Algorithms, and AI",
+    ],
   },
   {
     id: "3",
     type: "work",
-    title: "Full Stack Developer",
-    organization: "Digital Solutions Ltd.",
-    period: "2020 - 2023",
-    description: "Developed and maintained full-stack web applications",
-    details: ["Built 15+ production applications", "Implemented CI/CD pipelines", "Collaborated with design teams"],
+    title: "AI-Powered Full Stack Development Intern",
+    organization: "Summer Internship Program",
+    period: "June - July 2025",
+    description:
+      "Completed an 8-week internship focused on AI-powered full stack web development.",
+    details: [
+      "Built scalable applications using React, Node.js, and AI integrations",
+      "Gained hands-on experience in backend APIs, deployment, and model integration",
+    ],
   },
   {
     id: "4",
-    type: "education",
-    title: "Bachelor of Science in Computer Science",
-    organization: "State University",
-    period: "2016 - 2020",
-    description: "Graduated with honors, GPA: 3.8/4.0",
+    type: "project",
+    title: "College Resource Website",
+    organization: "IGDTUW Internal Project",
+    period: "2025",
+    description:
+      "Developed a resource-sharing web platform for students, potentially serving 1000–2000 users.",
+    details: [
+      "Designed responsive UI using React and TailwindCSS",
+      "Integrated authentication and database functionality",
+      "Collaborated with a team for UI/UX and backend development",
+    ],
   },
   {
     id: "5",
-    type: "work",
-    title: "Junior Developer",
-    organization: "StartUp Ventures",
-    period: "2019 - 2020",
-    description: "Contributed to frontend development and bug fixes",
-    details: ["Learned modern web development practices", "Shipped 3 features"],
+    type: "achievement",
+    title: "Mobile Application Development Hackathon - 2nd Place",
+    organization: "IGDTUW Hackathon",
+    period: "2025",
+    description:
+      "Secured 2nd position in a university-level hackathon focused on mobile application development.",
+    details: [
+      "Built an innovative Android app prototype within 24 hours",
+      "Led UI design and backend integration using Kotlin and Firebase",
+    ],
+  },
+  {
+    id: "6",
+    type: "experience",
+    title: "Tech Team Member - Taraangana Annual Fest",
+    organization: "IGDTUW",
+    period: "March 2025",
+    description:
+      "Worked as part of the technical team for IGDTUW’s annual cultural fest, Taraangana.",
+    details: [
+      "Contributed to website maintenance and digital coordination",
+      "Handled on-ground tech support during fest events",
+    ],
+  },
+  {
+    id: "7",
+    type: "community",
+    title: "Mentee - Google Developer Group (GDG) on Campus",
+    organization: "IGDTUW Chapter",
+    period: "2025 - Present",
+    description:
+      "Selected as a mentee under GDG on Campus focusing on AI/ML and Competitive Programming.",
+    details: [
+      "Engaging in mentorship sessions on machine learning and problem-solving",
+      "Collaborating with peers and mentors on tech-based projects",
+    ],
+  },
+  {
+    id: "8",
+    type: "contribution",
+    title: "Contributor - Open Source Connect",
+    organization: "Open Source Program",
+    period: "2025",
+    description:
+      "Actively contributing to open source repositories and collaborative projects.",
+    details: [
+      "Worked on front-end and documentation tasks",
+      "Learned Git, version control, and community collaboration",
+    ],
+  },
+  {
+    id: "9",
+    type: "creative",
+    title: "Photography Society Member",
+    organization: "Prekshya - IGDTUW",
+    period: "2024 - Present",
+    description:
+      "Member of Prekshya, the Photography Society of IGDTUW, combining creativity with visual storytelling.",
+    details: [
+      "Captured campus events and fests for official media",
+      "Developed skills in editing and composition",
+    ],
   },
 ];
+
 
 const Professional = () => {
   return (
