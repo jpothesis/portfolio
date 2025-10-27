@@ -3,45 +3,74 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { Card } from "./ui/card";
-import Button from "./ui/button";
 import { ExternalLink } from "lucide-react";
+
+// Import local logos
+import igdtuwLogo from "../assets/igdtuwlogo.png";
+import microsoftLogo from "../assets/microsoftlogo.png";
+import tsscLogo from "../assets/tssclogo.png";
+const codeclauseLogo = igdtuwLogo; // temporary placeholder
 
 const certificatesData = [
   {
     id: "1",
-    name: "Full-Stack Web Development",
-    organization: "Coursera",
-    orgLogo: "/coursera-logo.png",
+    name: "Internship Completion – AI Powered Full Stack Development",
+    organization: "IGDTUW & CodeClause",
+    orgLogo: codeclauseLogo,
     description:
-      "Comprehensive course covering HTML, CSS, JS, React, Node.js, and MongoDB.",
-    certificateUrl: "https://www.coursera.org/certificate/12345",
+      "Successfully completed a full-stack development internship focusing on AI integration and scalable app architecture (2025).",
+    certificateUrl:
+      "https://drive.google.com/file/d/1NejoHUju4uIen2GOZLayFuhVUWnhX9W3/view?usp=sharing",
   },
   {
     id: "2",
-    name: "AI & Machine Learning",
-    organization: "edX",
-    orgLogo: "/edx-logo.png",
+    name: "Career Essentials in Cybersecurity",
+    organization: "Microsoft & LinkedIn Learning",
+    orgLogo: microsoftLogo,
     description:
-      "Hands-on projects with AI algorithms, ML pipelines, and real-world data analysis.",
-    certificateUrl: "https://www.edx.org/certificate/67890",
+      "Learned fundamental cybersecurity concepts including network defense, threat modeling, and secure software practices (2025).",
+    certificateUrl:
+      "https://drive.google.com/file/d/1XeEb3o8wvMs-FqHQydqg9twQNxx11g2G/view?usp=sharing",
   },
   {
     id: "3",
-    name: "Cloud Computing Essentials",
-    organization: "AWS Training",
-    orgLogo: "/aws-logo.png",
+    name: "Mobile Application Development Hackathon Winner",
+    organization: "IGDTUW",
+    orgLogo: igdtuwLogo,
     description:
-      "Practical knowledge in cloud infrastructure, deployment, and security best practices.",
-    certificateUrl: "https://www.aws.training/certificate/abcde",
+      "Winner of the 2025 MAD Hackathon for designing and prototyping an innovative app solution with a strong user interface.",
+    certificateUrl:
+      "https://drive.google.com/file/d/18H9lGTpiiH9dSIuq9o6-PK8-JIqyfQ0_/view?usp=sharing",
   },
   {
     id: "4",
-    name: "React & Advanced Frontend",
-    organization: "Udemy",
-    orgLogo: "/udemy-logo.png",
+    name: "Telecom Sector Skill<br /> Council – Introduction to Internet of Things",
+    organization: "TSSC",
+    orgLogo: tsscLogo,
     description:
-      "Advanced React concepts, state management, hooks, and performance optimization.",
-    certificateUrl: "https://www.udemy.com/certificate/xyz123",
+      "Gained understanding of IoT systems, sensors, and connectivity technologies with practical insights into smart applications (2024).",
+    certificateUrl:
+      "https://drive.google.com/file/d/1tXGg_Q627bklKNOXEfbxdYkwQInJBddK/view?usp=sharing",
+  },
+  {
+    id: "5",
+    name: "Mobile Application Development Workshop",
+    organization: "IGDTUW",
+    orgLogo: igdtuwLogo,
+    description:
+      "Participated in a hands-on workshop on Android app development using modern frameworks and tools (2025).",
+    certificateUrl:
+      "https://drive.google.com/file/d/1qk5NXqUmEf-7_4TDfA0rVJG5sbHaqf7U/view?usp=sharing",
+  },
+  {
+    id: "6",
+    name: "Career Essentials in<br />Generative AI",
+    organization: "Microsoft & LinkedIn Learning",
+    orgLogo: microsoftLogo,
+    description:
+      "Explored AI fundamentals and GenAI tools including prompt engineering, ethical AI, and automation concepts (2024).",
+    certificateUrl:
+      "https://drive.google.com/file/d/1XeEb3o8wvMs-FqHQydqg9twQNxx11g2G/view?usp=sharing",
   },
 ];
 
@@ -59,38 +88,38 @@ const Certifications = () => {
             {certificatesData.map((cert) => (
               <Card
                 key={cert.id}
-                className="relative p-6 border border-gray-700 bg-gray-900 rounded-xl hover:shadow-[0_0_25px_#3b82f6] hover:border-blue-500/60 transition-all duration-300 group overflow-hidden h-72 flex flex-col justify-between"
+                className="relative flex flex-col justify-between p-6 border border-gray-700 bg-gray-900 rounded-xl hover:shadow-[0_0_25px_#3b82f6] hover:border-blue-500/60 transition-all duration-300 group overflow-hidden h-[320px]" // fixed height
               >
+                {/* Logo at top-right */}
+                <img
+                  src={cert.orgLogo}
+                  alt={cert.organization}
+                  className="absolute top-3 right-3 w-12 h-12 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                />
+
+                {/* Content */}
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {cert.name}
-                  </h3>
-                  <p className="text-gray-300 mb-4">{cert.description}</p>
+                  <h3
+                    className="text-2xl font-bold text-white mb-2"
+                    dangerouslySetInnerHTML={{ __html: cert.name }}
+                  ></h3>
+                  <p className="text-gray-300 text-sm">{cert.description}</p>
                 </div>
 
-                {/* External Link Button */}
-                <Button
-                  asChild
-                  variant="outline"
-                  className="mt-auto group-hover:bg-blue-500/20"
-                >
+                {/* Button pinned at bottom */}
+                <div className="mt-auto pt-4">
                   <a
                     href={cert.certificateUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2"
+                    className="relative w-full inline-flex items-center justify-center gap-2 px-4 py-2 border border-blue-400 text-blue-400 rounded-md overflow-hidden transition-all duration-300 hover:text-white group/button"
                   >
-                    <ExternalLink className="w-4 h-4" />
-                    View Certificate
+                    <span className="absolute inset-0 bg-blue-500/20 opacity-0 group-hover/button:opacity-100 transition-all duration-300"></span>
+                    <span className="absolute inset-0 rounded-md border border-transparent group-hover/button:border-blue-400 blur-sm opacity-0 group-hover/button:opacity-100 transition-all duration-300"></span>
+                    <ExternalLink className="w-4 h-4 relative z-10" />
+                    <span className="relative z-10">View Certificate</span>
                   </a>
-                </Button>
-
-                {/* Moved logo to bottom-right */}
-                <img
-                  src={cert.orgLogo}
-                  alt={cert.organization}
-                  className="absolute bottom-3 right-3 w-12 h-12 opacity-60 group-hover:opacity-100 transition-all duration-300"
-                />
+                </div>
               </Card>
             ))}
           </div>

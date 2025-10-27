@@ -69,7 +69,7 @@ const topPicks = [
 
       {/* LinkedIn Button */}
       <a
-        href="https://www.linkedin.com/in/your-profile" // Replace with your LinkedIn URL
+        href="https://www.linkedin.com/in/jaanvi-choudhary-9277872a3" // Replace with your LinkedIn URL
         target="_blank"
         rel="noopener noreferrer"
         className="bg-blue-600 text-white font-semibold px-5 py-2 rounded-md flex items-center gap-2 hover:bg-blue-700 transition text-lg"
