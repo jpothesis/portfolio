@@ -56,12 +56,19 @@ const Splash = () => {
 
   return (
     <div
-      className={`fixed inset-0 bg-gradient-to-br from-[#0a0f1c] via-[#081831] to-[#000814] flex items-center justify-center transition-opacity duration-500 ${
+      className={`fixed inset-0 bg-gradient-to-br from-[#0a0f1c] via-[#081831] to-[#000814] flex flex-col items-center justify-center transition-opacity duration-500 ${
         fadeOut ? "opacity-0" : "opacity-100"
       }`}
       onClick={!hasStarted ? startSplash : undefined} // 👆 Start on tap
     >
-      {/* Blank screen initially */}
+      {/* Show "Click" text before animation starts */}
+      {!hasStarted && (
+        <p className="text-white text-sm opacity-70 animate-pulse absolute bottom-20">
+          click
+        </p>
+      )}
+
+      {/* Logo animation */}
       {hasStarted && (
         <div className="flex flex-col items-center justify-center text-center">
           <div className="animate-pulse-slow">
@@ -80,11 +87,11 @@ const Splash = () => {
           0%,
           100% {
             filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.6))
-                    drop-shadow(0 0 45px rgba(56, 189, 248, 0.4));
+              drop-shadow(0 0 45px rgba(56, 189, 248, 0.4));
           }
           50% {
             filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.9))
-                    drop-shadow(0 0 65px rgba(56, 189, 248, 0.6));
+              drop-shadow(0 0 65px rgba(56, 189, 248, 0.6));
           }
         }
 
@@ -97,7 +104,8 @@ const Splash = () => {
         }
 
         @keyframes pulse {
-          0%, 100% {
+          0%,
+          100% {
             transform: scale(1);
           }
           50% {
