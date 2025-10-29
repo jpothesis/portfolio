@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import TileRow from "./TileRow";
 import RectTileRow from "./RectTileRow"; 
-import MobileBackButton from "./MobileBackButton"; // 👈 Added
+
 import AdventurerVideo from "../assets/adventurer.mp4"; // Adventurer video
 
 // Local images
@@ -42,7 +42,7 @@ const AdventurerPage = () => {
   return (
     <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden relative">
       <Navbar />
-      <MobileBackButton /> {/* 👈 Added mobile-only back button */}
+      
 
       {/* Hero/Header Section with video */}
       <header className="relative w-full h-[60vh] flex flex-col justify-center bg-black overflow-hidden">

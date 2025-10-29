@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import TileRow from "./TileRow";
 import RectTileRow from "./RectTileRow"; 
-import MobileBackButton from "./MobileBackButton"; // 👈 Added mobile back button
+
 import StalkerVideo from "../assets/stalker.mp4"; // Stalker video
 
 // Local images
@@ -42,7 +42,7 @@ const StalkerPage = () => {
   return (
     <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden relative">
       <Navbar />
-      <MobileBackButton /> {/* 👈 Appears only on mobile */}
+     
 
       {/* Hero/Header Section with video */}
       <header className="relative w-full h-[60vh] flex flex-col justify-center bg-black overflow-hidden">
