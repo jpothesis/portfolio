@@ -1,15 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react"; 
 import Navbar from "./Navbar";
+import MobileBackButton from "./MobileBackButton"; // ✅ Import mobile back button
 import { Card } from "./ui/card";
 import { ExternalLink, Github, Mail, Phone } from "lucide-react";
 import myselfImg from "../assets/myself.png"; // ✅ Correct image import
 
-const ContactMe = () => {
+const ContactMe = () => {  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className="bg-[#0a1128] min-h-screen text-white flex flex-col items-center justify-start">
+    <div className="bg-[#0a1128] min-h-screen text-white flex flex-col items-center justify-start relative">
       <Navbar />
+      <MobileBackButton /> {/* 👈 Appears only on mobile */}
 
       <section className="pt-36 pb-16 px-4 md:px-8 flex flex-col items-center justify-center w-full">
         <div className="max-w-4xl w-full mx-auto space-y-10">

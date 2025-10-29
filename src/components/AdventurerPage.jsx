@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import TileRow from "./TileRow";
 import RectTileRow from "./RectTileRow"; 
+import MobileBackButton from "./MobileBackButton"; // 👈 Added
 import AdventurerVideo from "../assets/adventurer.mp4"; // Adventurer video
 
-// Local images (same as RecruiterPage)
+// Local images
 import skillsImg from "../assets/skills.png";
 import certificationsImg from "../assets/certifications.png";
 import projectsImg from "../assets/projects.png";
@@ -39,8 +40,9 @@ const AdventurerPage = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden relative">
       <Navbar />
+      <MobileBackButton /> {/* 👈 Added mobile-only back button */}
 
       {/* Hero/Header Section with video */}
       <header className="relative w-full h-[60vh] flex flex-col justify-center bg-black overflow-hidden">
@@ -53,8 +55,10 @@ const AdventurerPage = () => {
         />
         <div className="absolute inset-0 bg-black/40"></div>
 
+        {/* Buttons and Description */}
         <div className="relative z-10 flex flex-col gap-4 pl-10 mt-28">
           <div className="flex items-center space-x-4">
+            {/* Resume Button */}
             <button
               onClick={() => navigate('/resume')}
               className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
@@ -62,19 +66,26 @@ const AdventurerPage = () => {
               Resume
             </button>
 
+            {/* LinkedIn Button */}
             <a
-              href="https://www.linkedin.com/in/your-profile"
+              href="https://www.linkedin.com/in/jaanvi-choudhary-9277872a3"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white font-semibold px-5 py-2 rounded-md flex items-center gap-2 hover:bg-blue-700 transition text-lg"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                className="w-5 h-5"
+              >
                 <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.67-1.27 2.3-2.6 4.74-2.6 5.08 0 6 3.34 6 7.68V24h-5v-7c0-1.67-.03-3.83-2.33-3.83-2.33 0-2.68 1.82-2.68 3.7V24h-5V8z"/>
               </svg>
               LinkedIn
             </a>
           </div>
 
+          {/* Description */}
           <div>
             <p className="text-white text-lg md:text-xl">
               <span className="font-bold text-2xl md:text-4xl">Jaanvi Choudhary - Full Stack Developer</span><br/><br/>

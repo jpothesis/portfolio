@@ -1,6 +1,8 @@
-import React from "react";
-import Navbar from "./Navbar"; // Import your existing Navbar
-import { Card } from "./ui/card"; // Your Card component
+"use client";
+import React, { useEffect } from "react"; 
+import Navbar from "./Navbar";
+import { Card } from "./ui/card";
+import MobileBackButton from "./MobileBackButton"; // 👈 Import back button
 
 const timelineData = [
   {
@@ -25,7 +27,7 @@ const timelineData = [
     description:
       "Currently pursuing my B.Tech degree with specialization in Computer Science and Engineering.",
     details: [
-      "Currently in 2nd year of the program - CGPA:",
+      "Currently in 2nd year of the program ",
       "Studying core CS subjects like Data Structures, Algorithms, and AI",
     ],
   },
@@ -123,11 +125,14 @@ const timelineData = [
   },
 ];
 
-
-const Professional = () => {
+const Professional = () => {   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className="bg-[#0a1128] min-h-screen text-white">
+    <div className="bg-[#0a1128] min-h-screen text-white relative">
       <Navbar />
+      <MobileBackButton /> {/* 👈 Added back button like Recruiter page */}
 
       <section className="pt-24 pb-16 px-4 md:px-8">
         <div className="max-w-5xl mx-auto">
@@ -198,6 +203,7 @@ const Professional = () => {
         </div>
       </section>
 
+      {/* Smooth fade animations */}
       <style>{`
         .animate-fadeIn {
           animation: fadeInUp 0.8s forwards;

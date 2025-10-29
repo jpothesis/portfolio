@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react"; 
 import Navbar from "./Navbar";
 import { Card } from "./ui/card";
+import MobileBackButton from "./MobileBackButton"; // 👈 Added back button import
 
 const skillsData = [
   {
@@ -138,9 +139,15 @@ const skillsData = [
 ];
 
 const Skills = () => {
+  // ✅ Scroll to top when this page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />
+      <MobileBackButton /> {/* 👈 Appears only on mobile */}
+
       <section className="pt-24 pb-16 px-4 md:px-8 bg-[#0a0f25] min-h-screen">
         <div className="max-w-7xl mx-auto space-y-12">
           {skillsData.map((group) => (

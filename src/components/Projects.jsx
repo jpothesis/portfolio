@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react"; 
 import Navbar from "./Navbar";
 import { Card } from "./ui/card";
 import { Github, Globe } from "lucide-react";
+import MobileBackButton from "./MobileBackButton"; // ✅ Import back button
 
 import IGDTUW_Verse from "../assets/IGDTUW_Verse.png";
 import ThreeDWebsite from "../assets/3d_Website.png";
@@ -54,7 +57,7 @@ const projectsData = [
       "My personal portfolio website showcasing my projects, skills, and achievements with a clean UI, smooth animations, and responsive design.",
     image: Portfolio,
     tags: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-    siteUrl: "https://portfolio-nu-three-41.vercel.app/",
+    siteUrl: "https://jaanvi-choudhary-prime-portfolio.vercel.app/",
   },
   {
     id: "5",
@@ -76,10 +79,15 @@ const projectsData = [
   },
 ];
 
-const Projects = () => {
+const Projects = () => {   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />
+      <MobileBackButton /> {/* ✅ Mobile back button for navigation */}
+
       <section className="pt-24 pb-16 px-4 md:px-8 bg-[#0a0f25] min-h-screen">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

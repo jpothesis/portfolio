@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react"; 
 import Navbar from "./Navbar";
+import MobileBackButton from "./MobileBackButton"; // ✅ Import mobile back button
 import { Card } from "./ui/card";
 import { ExternalLink } from "lucide-react";
 
@@ -74,11 +75,16 @@ const certificatesData = [
   },
 ];
 
-const Certifications = () => {
+const Certifications = () => {   // ✅ Scroll to top when this page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <>
+    <div className="bg-[#0a0f25] min-h-screen relative">
       <Navbar />
-      <section className="pt-24 pb-16 px-4 md:px-8 bg-[#0a0f25] min-h-screen">
+      <MobileBackButton /> {/* 👈 Appears only on mobile */}
+
+      <section className="pt-24 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-white mb-10">
             My Certifications
@@ -125,7 +131,7 @@ const Certifications = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

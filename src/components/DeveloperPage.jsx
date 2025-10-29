@@ -1,98 +1,118 @@
 "use client";
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar"; 
-import TileRow from "./TileRow";
-import RectTileRow from "./RectTileRow"; 
-import DeveloperVideo from "../assets/developer.mp4"; // Developer video
+import Navbar from "./Navbar";
+import { Card } from "./ui/card";
+import MobileBackButton from "./MobileBackButton"; // ✅ Import added
 
-// Local images (same as RecruiterPage)
-import skillsImg from "../assets/skills.png";
-import certificationsImg from "../assets/certifications.png";
-import projectsImg from "../assets/projects.png";
-import experienceImg from "../assets/experience.png";
-import resumeImg from "../assets/resume.png";
-import contactMeImg from "../assets/contactme.png";
-import musicImg from "../assets/music.png";
-import photographyImg from "../assets/photography.png";
-import readingImg from "../assets/reading.png";
-import contactMe1Img from "../assets/contactme1.png";
+const timelineData = [
+  // ...your existing data...
+];
 
-const DeveloperPage = () => {
+const Professional = () => {
   const navigate = useNavigate();
 
-  const topPicks = [
-    { title: "Skills", route: "/skills", image: skillsImg }, 
-    { title: "Certifications", route: "/certifications", image: certificationsImg }, 
-    { title: "Projects", route: "/projects", image: projectsImg },
-    { title: "Experience", route: "/professional", image: experienceImg },
-    { title: "Resume", route: "/recommendations", image: resumeImg },
-    { title: "Contact Me", route: "/contact-me", image: contactMeImg },
-  ];
-
-  const continueWatching = [
-    { title: "Music", route: "/music", image: musicImg },
-    { title: "Photography", route: "/reading", image: photographyImg },
-    { title: "Reading", route: "/blogs", image: readingImg },
-    { title: "Contact Me", route: "/contact-me", image: contactMe1Img },
-  ];
-
   return (
-    <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden">
+    <div className="bg-[#0a1128] min-h-screen text-white relative">
       <Navbar />
+      <MobileBackButton /> {/* ✅ Visible only on mobile */}
 
-      {/* Hero/Header Section with video */}
-      <header className="relative w-full h-[60vh] flex flex-col justify-center bg-black overflow-hidden">
-        <video
-          src={DeveloperVideo}
-          autoPlay
-          loop
-          muted
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        <div className="relative z-10 flex flex-col gap-4 pl-10 mt-28">
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => navigate('/resume')}
-              className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
-            >
-              Resume
-            </button>
-
-            <a
-              href="https://www.linkedin.com/in/your-profile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 text-white font-semibold px-5 py-2 rounded-md flex items-center gap-2 hover:bg-blue-700 transition text-lg"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-                <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.67-1.27 2.3-2.6 4.74-2.6 5.08 0 6 3.34 6 7.68V24h-5v-7c0-1.67-.03-3.83-2.33-3.83-2.33 0-2.68 1.82-2.68 3.7V24h-5V8z"/>
-              </svg>
-              LinkedIn
-            </a>
+      <section className="pt-24 pb-16 px-4 md:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 opacity-0 animate-fadeIn">
+              Professional Journey
+            </h2>
+            <div className="w-20 h-1 bg-blue-500 rounded-full mx-auto opacity-0 animate-fadeIn delay-200"></div>
           </div>
 
-          <div>
-            <p className="text-white text-lg md:text-xl">
-              <span className="font-bold text-2xl md:text-4xl">Jaanvi Choudhary - Full Stack Developer</span><br/><br/>
-              Skilled Full-Stack Developer with expertise in React, Node.js, MongoDB, Tailwind CSS, and AI-powered integrations. I successfully led a college-wide platform serving 1,000–2,000 users, streamlining resource management and daily workflows. Experienced in building scalable, high-performance applications with clean architecture, responsive UIs, and intelligent AI features. Passionate about delivering innovative, user-centric solutions that make an impact.
-            </p>
-          </div>
-        </div>
-      </header>
+          <div className="relative">
+            {/* Center Line */}
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-blue-500 transform md:-translate-x-1/2"></div>
 
-      {/* Content Section */}
-      <section className="py-8 bg-gray-900/95">
-        <div className="max-w-full mx-auto">
-          <TileRow title="Today's Top Picks for Developer" tiles={topPicks} navigate={navigate} />
-          <RectTileRow title="Continue Watching for Developer" tiles={continueWatching} navigate={navigate} />
+            <div className="space-y-12">
+              {timelineData.map((item, index) => (
+                <div
+                  key={item.id}
+                  className={`relative md:flex items-start md:items-center opacity-0 animate-fadeIn delay-${index * 200} ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Timeline Dot */}
+                  <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-blue-500 rounded-full border-4 border-[#0a1128] transform -translate-x-2 md:-translate-x-2 md:translate-y-6"></div>
+
+                  {/* Timeline Content */}
+                  <div
+                    className={`ml-8 md:ml-0 md:w-1/2 ${
+                      index % 2 === 0 ? "md:pr-8" : "md:pl-8"
+                    }`}
+                  >
+                    <Card className="relative p-6 bg-gray-900/70 border border-gray-700 rounded-xl transition-transform duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_#3b82f6]">
+                      <div className="absolute inset-0 bg-blue-500 opacity-20 blur-3xl rounded-xl -z-10 pointer-events-none"></div>
+
+                      <div className="flex items-center gap-2 mb-2">
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            item.type === "work"
+                              ? "bg-blue-600 text-white"
+                              : "bg-purple-600 text-white"
+                          }`}
+                        >
+                          {item.type === "work" ? "Work" : "Education"}
+                        </span>
+                        <span className="text-sm text-gray-400">{item.period}</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                      <p className="text-blue-400 font-semibold mb-3">{item.organization}</p>
+                      <p className="text-gray-300 mb-3">{item.description}</p>
+
+                      {item.details && item.details.length > 0 && (
+                        <ul className="space-y-2">
+                          {item.details.map((detail, idx) => (
+                            <li
+                              key={idx}
+                              className="text-sm text-gray-400 flex items-start gap-2"
+                            >
+                              <span className="text-blue-400 mt-1">•</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </Card>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
+
+      <style>{`
+        .animate-fadeIn {
+          animation: fadeInUp 0.8s forwards;
+        }
+        .delay-0 { animation-delay: 0s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-800 { animation-delay: 0.8s; }
+        .delay-1000 { animation-delay: 1s; }
+
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };
 
-export default DeveloperPage;
+export default Professional;
