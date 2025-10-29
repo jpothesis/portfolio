@@ -74,7 +74,7 @@ const ContactMe = () => {  useEffect(() => {
             </a>
 
             <a
-              href="tel:+919717009487"
+              href="tel:"
               className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold transition text-white shadow-md"
             >
               <Phone className="w-5 h-5" />
