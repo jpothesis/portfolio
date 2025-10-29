@@ -29,7 +29,12 @@ const RecruiterPage = () => {
     { title: "Certifications", route: "/certifications", image: certificationsImg }, 
     { title: "Projects", route: "/projects", image: projectsImg },
     { title: "Experience", route: "/professional", image: experienceImg },
-    { title: "Resume", route: "/recommendations", image: resumeImg },
+      {
+    title: "Resume",
+    external: true, // ✅ Add this flag
+    link: "https://drive.google.com/file/d/1FQYYZtIwEUKNlBeisLGgiHJOGouuPZDS/view?usp=drive_link",
+    image: resumeImg,
+  },
     { title: "Contact Me", route: "/contact-me", image: contactMeImg },
   ];
 
@@ -60,12 +65,15 @@ const RecruiterPage = () => {
         <div className="relative z-10 flex flex-col gap-4 pl-10 mt-28">
           <div className="flex items-center space-x-4">
             {/* Resume Button */}
-            <button
-              onClick={() => navigate('/resume')}
-              className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
-            >
-              Resume
-            </button>
+<a
+  href="https://drive.google.com/file/d/1FQYYZtIwEUKNlBeisLGgiHJOGouuPZDS/view?usp=drive_link"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
+>
+  Resume
+</a>
+
 
             {/* LinkedIn Button */}
             <a

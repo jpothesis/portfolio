@@ -49,7 +49,14 @@ const TileRow = ({ title, tiles, placeholderImages = {}, navigate }) => {
           return (
             <div
               key={index}
-              onClick={() => effectiveNavigate(tile.route)}
+              onClick={() => {
+  if (tile.external && tile.link) {
+    window.open(tile.link, "_blank", "noopener,noreferrer");
+  } else if (tile.route) {
+    effectiveNavigate(tile.route);
+  }
+}}
+
               className="group relative w-[18%] min-w-[180px] h-56 rounded-lg overflow-hidden shadow-xl
                          cursor-pointer inline-block flex-shrink-0
                          transform transition duration-300 ease-in-out

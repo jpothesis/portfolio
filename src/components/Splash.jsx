@@ -2,7 +2,10 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-import splashSound from "../assets/splash.mp3"; // 🎵 Sound file
+import splashSound from "../assets/splash.mp3"; 
+import SpotlightBackground from "./ui/magic/SpotlightBackground";
+
+
 
 const Splash = () => {
   const [hasStarted, setHasStarted] = useState(false);
@@ -55,31 +58,29 @@ const Splash = () => {
   }, []);
 
   return (
-    <div
-      className={`fixed inset-0 bg-gradient-to-br from-[#0a0f1c] via-[#081831] to-[#000814] flex flex-col items-center justify-center transition-opacity duration-500 ${
-        fadeOut ? "opacity-0" : "opacity-100"
-      }`}
-      onClick={!hasStarted ? startSplash : undefined} // 👆 Start on tap
-    >
-      {/* Show "Click" text before animation starts */}
-      {!hasStarted && (
-        <p className="text-white text-sm opacity-70 animate-pulse absolute bottom-20">
-          click
-        </p>
-      )}
-
-      {/* Logo animation */}
-      {hasStarted && (
-        <div className="flex flex-col items-center justify-center text-center">
-          <div className="animate-pulse-slow">
-            <img
-              src={logo}
-              alt="Logo"
-              className="animate-glow-logo w-[700px] max-w-[90vw] h-auto object-contain"
-            />
-          </div>
-        </div>
-      )}
+<div
+  className={`fixed inset-0 bg-gradient-to-br from-[#0a0f1c] via-[#081831] to-[#000814] flex flex-col items-center justify-center transition-opacity duration-500 ${
+    fadeOut ? "opacity-0" : "opacity-100"
+  }`}
+  onClick={!hasStarted ? startSplash : undefined}
+>
+  <SpotlightBackground /> {/* 🌟 Add magic UI background */}
+  {!hasStarted && (
+    <p className="text-white text-sm opacity-70 animate-pulse absolute bottom-20">
+      click
+    </p>
+  )}
+  {hasStarted && (
+    <div className="flex flex-col items-center justify-center text-center">
+      <div className="animate-pulse-slow">
+        <img
+          src={logo}
+          alt="Logo"
+          className="animate-glow-logo w-[700px] max-w-[90vw] h-auto object-contain"
+        />
+      </div>
+    </div>
+  )}
 
       {/* Custom Animations */}
       <style jsx="true">{`
