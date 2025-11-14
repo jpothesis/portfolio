@@ -4,9 +4,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import TileRow from "./TileRow";
-import RectTileRow from "./RectTileRow"; 
+import RectTileRow from "./RectTileRow";
 
-import StalkerVideo from "../assets/stalker.mp4"; // Stalker video
+import StalkerVideo from "../assets/stalker.mp4";
 
 // Local images
 import skillsImg from "../assets/skills.png";
@@ -28,7 +28,15 @@ const StalkerPage = () => {
     { title: "Certifications", route: "/certifications", image: certificationsImg }, 
     { title: "Projects", route: "/projects", image: projectsImg },
     { title: "Experience", route: "/professional", image: experienceImg },
-    { title: "Resume", route: "/recommendations", image: resumeImg },
+
+    // ✅ Added external resume link like recruiter page
+    {
+      title: "Resume",
+      external: true,
+      link: "https://drive.google.com/file/d/19Y4pHe8VBdS0-ONk1AlQIsLlgyZw71cu/view?usp=sharing",
+      image: resumeImg,
+    },
+
     { title: "Contact Me", route: "/contact-me", image: contactMeImg },
   ];
 
@@ -42,9 +50,7 @@ const StalkerPage = () => {
   return (
     <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden relative">
       <Navbar />
-     
 
-      {/* Hero/Header Section with video */}
       <header className="relative w-full h-[60vh] flex flex-col justify-center bg-black overflow-hidden">
         <video
           src={StalkerVideo}
@@ -55,18 +61,19 @@ const StalkerPage = () => {
         />
         <div className="absolute inset-0 bg-black/40"></div>
 
-        {/* Buttons and Description */}
         <div className="relative z-10 flex flex-col gap-4 pl-10 mt-28">
           <div className="flex items-center space-x-4">
-            {/* Resume Button */}
-            <button
-              onClick={() => navigate('/resume')}
+
+            {/* ✅ External Resume Button added here */}
+            <a
+              href="https://drive.google.com/file/d/19Y4pHe8VBdS0-ONk1AlQIsLlgyZw71cu/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
             >
               Resume
-            </button>
+            </a>
 
-            {/* LinkedIn Button */}
             <a
               href="https://www.linkedin.com/in/jaanvi-choudhary-9277872a3"
               target="_blank"
@@ -85,17 +92,18 @@ const StalkerPage = () => {
             </a>
           </div>
 
-          {/* Description */}
           <div>
             <p className="text-white text-lg md:text-xl">
-              <span className="font-bold text-2xl md:text-4xl">Jaanvi Choudhary - Full Stack Developer</span><br /><br />
-              Skilled Full-Stack Developer with expertise in React, Node.js, MongoDB, Tailwind CSS, and AI-powered integrations. I successfully led a college-wide platform serving 1,000–2,000 users, streamlining resource management and daily workflows. Experienced in building scalable, high-performance applications with clean architecture, responsive UIs, and intelligent AI features. Passionate about delivering innovative, user-centric solutions that make an impact.
+              <span className="font-bold text-2xl md:text-4xl">
+                Jaanvi Choudhary - Full Stack Developer
+              </span>
+              <br /><br />
+              Skilled Full-Stack Developer with expertise in React, Node.js, MongoDB, Tailwind CSS, and AI-powered integrations...
             </p>
           </div>
         </div>
       </header>
 
-      {/* Content Section */}
       <section className="py-8 bg-gray-900/95">
         <div className="max-w-full mx-auto">
           <TileRow 

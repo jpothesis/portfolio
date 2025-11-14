@@ -28,7 +28,14 @@ const DeveloperPage = () => {
     { title: "Certifications", route: "/certifications", image: certificationsImg }, 
     { title: "Projects", route: "/projects", image: projectsImg },
     { title: "Experience", route: "/professional", image: experienceImg },
-    { title: "Resume", route: "/recommendations", image: resumeImg },
+
+    {
+      title: "Resume",
+      external: true,
+      link: "https://drive.google.com/file/d/19Y4pHe8VBdS0-ONk1AlQIsLlgyZw71cu/view?usp=sharing",
+      image: resumeImg,
+    },
+
     { title: "Contact Me", route: "/contact-me", image: contactMeImg },
   ];
 
@@ -42,9 +49,8 @@ const DeveloperPage = () => {
   return (
     <div className="min-h-screen w-full bg-black text-white font-sans overflow-x-hidden relative">
       <Navbar />
-    
 
-      {/* Hero/Header Section with video */}
+      {/* Hero/Header Section */}
       <header className="relative w-full h-[60vh] flex flex-col justify-center bg-black overflow-hidden">
         <video
           src={DeveloperVideo}
@@ -57,13 +63,16 @@ const DeveloperPage = () => {
 
         <div className="relative z-10 flex flex-col gap-4 pl-10 mt-28">
           <div className="flex items-center space-x-4">
-            {/* Resume Button */}
-            <button
-              onClick={() => navigate('/resume')}
+
+            {/* Updated Resume Button */}
+            <a
+              href="https://drive.google.com/file/d/19Y4pHe8VBdS0-ONk1AlQIsLlgyZw71cu/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
             >
               Resume
-            </button>
+            </a>
 
             {/* LinkedIn Button */}
             <a

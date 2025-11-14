@@ -30,11 +30,17 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* 🌀 Suspense Fallback while components load */}
+        {/* 🌀 Suspense Fallback with Cool Loading Animation */}
         <Suspense
           fallback={
-            <div className="h-screen flex items-center justify-center bg-[#0a0f1c] text-white">
-              Loading...
+            <div className="h-screen w-screen flex flex-col gap-4 items-center justify-center bg-[#0a0f1c] text-white animate-fadeIn">
+
+              {/* Glowing Spinning Loader */}
+              <div className="w-16 h-16 border-4 border-t-transparent border-[#38bdf8] rounded-full animate-spin shadow-[0_0_30px_#38bdf8]"></div>
+
+              <p className="text-xl tracking-wider opacity-80 animate-pulse">
+                Loading ...
+              </p>
             </div>
           }
         >
@@ -63,10 +69,10 @@ function App() {
             {/* Certifications */}
             <Route path="/certifications" element={<Certifications />} />
 
-            {/* Contact Me / Hire Me */}
+            {/* Contact Me */}
             <Route path="/contact-me" element={<ContactMe />} />
 
-            {/* Catch-all redirects to Splash */}
+            {/* Catch-all */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>

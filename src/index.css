@@ -1,22 +1,30 @@
+/* ============================
+   🔵  TAILWIND IMPORTS
+============================ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global root variables */
+
+/* ============================
+   🔵 GLOBAL ROOT SETTINGS
+============================ */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Reset margins & ensure full screen */
+/* Reset */
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -25,7 +33,10 @@ html, body, #root {
   box-sizing: border-box;
 }
 
-/* Links */
+
+/* ============================
+   🔵 LINKS
+============================ */
 a {
   font-weight: 500;
   color: #646cff;
@@ -35,13 +46,19 @@ a:hover {
   color: #535bf2;
 }
 
-/* Headings */
+
+/* ============================
+   🔵 HEADINGS
+============================ */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-/* Buttons */
+
+/* ============================
+   🔵 BUTTONS
+============================ */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -61,7 +78,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Light mode overrides */
+
+/* ============================
+   🔵 LIGHT MODE OVERRIDES
+============================ */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -74,25 +94,114 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.tenor-gif-embed {
-    /* Ensures the container is the full size you want */
-    width: 100% !important;
-    height: 100% !important;
-    position: absolute; /* Already present in your JSX */
-    top: 0;
-    left: 0;
+
+
+/* ============================
+   🔵 LOGO + CARD DEFAULT VITE STYLES
+============================ */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* 🎯 THE CRITICAL PART: Targets the element (usually an iframe or div) 
-   the Tenor script puts inside your .tenor-gif-embed div */
+/* Spin Animation */
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Cards */
+.card {
+  padding: 2em;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  color: white;
+  margin: 1rem auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Doc text */
+.read-the-docs {
+  color: #888;
+  margin-top: 1rem;
+  display: block;
+}
+
+
+/* ============================
+   🔵 TENOR GIF FULLSCREEN FIX
+============================ */
+.tenor-gif-embed {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .tenor-gif-embed > * {
-    /* 1. Force the embedded content to fill the parent container */
-    width: 100% !important;
-    height: 100% !important;
-    
-    /* 2. Apply object-fit: cover to ensure it leaves no gaps */
-    object-fit: cover !important; 
-    
-    /* 3. Ensure it is displayed as a block-level element */
-    display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+
+/* ============================
+   🔵 GALAXY LOADER ANIMATIONS
+============================ */
+
+/* Slow ring rotation */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Reverse ring */
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Twinkling stars */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Orbit satellite */
+@keyframes satellite {
+  0%   { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+/* Utility classes */
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 12s linear infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-satellite {
+  animation: satellite 4s linear infinite;
 }

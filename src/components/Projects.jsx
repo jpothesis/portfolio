@@ -22,17 +22,8 @@ const projectsData = [
     tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     siteUrl: "https://igdtuw-verse.netlify.app",
   },
-  {
+    {
     id: "2",
-    title: "3D Interactive Website",
-    description:
-      "A creative frontend-only 3D portfolio experiment that integrates dynamic 3D models and smooth animations — built to explore advanced WebGL and Three.js rendering.",
-    image: ThreeDWebsite,
-    tags: ["React", "Three.js", "Vite", "Framer Motion", "Tailwind CSS"],
-    siteUrl: "https://3-d-website-jpothesis.vercel.app/",
-  },
-  {
-    id: "3",
     title: "CareerGenie.AI",
     description:
       "An AI-powered full-stack career assistant that helps users create resumes, prepare for interviews, and receive personalized career guidance — all through an intelligent, interactive dashboard.",
@@ -47,9 +38,18 @@ const projectsData = [
       "OpenAI API",
       "Vite",
     ],
-    githubUrl: "https://github.com/jpothesis/CareerGenie_AI",
-    status: "Ongoing",
+   siteUrl: "https://career-genie-ai.vercel.app/",
   },
+  {
+    id: "3",
+    title: "3D Interactive Website",
+    description:
+      "A creative frontend-only 3D portfolio experiment that integrates dynamic 3D models and smooth animations — built to explore advanced WebGL and Three.js rendering.",
+    image: ThreeDWebsite,
+    tags: ["React", "Three.js", "Vite", "Framer Motion", "Tailwind CSS"],
+    siteUrl: "https://3-d-website-jpothesis.vercel.app/",
+  },
+
   {
     id: "4",
     title: "Portfolio Website",

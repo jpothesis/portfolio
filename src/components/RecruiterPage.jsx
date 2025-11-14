@@ -31,8 +31,8 @@ const RecruiterPage = () => {
     { title: "Experience", route: "/professional", image: experienceImg },
       {
     title: "Resume",
-    external: true, // ✅ Add this flag
-    link: "https://drive.google.com/file/d/1FQYYZtIwEUKNlBeisLGgiHJOGouuPZDS/view?usp=drive_link",
+    external: true, 
+    link: "https://drive.google.com/file/d/19Y4pHe8VBdS0-ONk1AlQIsLlgyZw71cu/view?usp=sharing",
     image: resumeImg,
   },
     { title: "Contact Me", route: "/contact-me", image: contactMeImg },
@@ -66,7 +66,7 @@ const RecruiterPage = () => {
           <div className="flex items-center space-x-4">
             {/* Resume Button */}
 <a
-  href="https://drive.google.com/file/d/1FQYYZtIwEUKNlBeisLGgiHJOGouuPZDS/view?usp=drive_link"
+  href="https://drive.google.com/file/d/19Y4pHe8VBdS0-ONk1AlQIsLlgyZw71cu/view?usp=sharing"
   target="_blank"
   rel="noopener noreferrer"
   className="bg-white/90 text-black font-semibold px-6 py-2 rounded-md hover:bg-white transition text-lg"
